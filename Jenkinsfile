@@ -20,13 +20,20 @@ pipeline {
         stage('deploy') {
 
         environment {
-        	String0 =  "$params.projectName"
+        	projectName =  "$params.projectName"
+        	projectNames = projectName.split(",")
+
          }
 
                     steps {
                         sh "echo ${env.projectName}"
-                        sh "echo ${String0}"
-                        
+                        sh "echo ${projectName}"
+                        script {
+                            def browsers = ['chrome', 'firefox']
+                            for (int i = 0; i < browsers.size(); ++i) {
+                                 echo "Testing the ${browsers[i]} browser"
+                            }
+                        }
                     }
         }
 

@@ -8,14 +8,14 @@ pipeline {
 
 
     stages {
-        stage('Build') {
-            steps {
+        //stage('Build') {
+        //    steps {
 
-                sh "pwd"
-                sh "ls -ll"
-                sh 'mvn -B -DskipTests clean package'
-            }
-        }
+        //        sh "pwd"
+        //        sh "ls -ll"
+        //        sh 'mvn -B -DskipTests clean package'
+        //    }
+       // }
 
         stage('deploy') {
 
@@ -30,7 +30,7 @@ pipeline {
                         script {
                             def projectNames = "${projectName}".split(",")
                             for (int i = 0; i < projectNames.size(); ++i) {
-                                 echo "Testing the ${browsers[i]} browser"
+                                 echo "Testing the ${projectNames[i]} browser"
                             }
                         }
                     }

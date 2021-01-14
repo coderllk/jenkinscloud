@@ -21,7 +21,6 @@ pipeline {
 
         environment {
         	projectName =  "$params.projectName"
-        	projectNames = projectName.split(",")
 
          }
 
@@ -29,8 +28,8 @@ pipeline {
                         sh "echo ${env.projectName}"
                         sh "echo ${projectName}"
                         script {
-                            def browsers = ['chrome', 'firefox']
-                            for (int i = 0; i < browsers.size(); ++i) {
+                            def projectNames = "${projectName}".split(",")
+                            for (int i = 0; i < projectNames.size(); ++i) {
                                  echo "Testing the ${browsers[i]} browser"
                             }
                         }

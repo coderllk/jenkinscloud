@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh "pwd"
-                sh "cd ../jenkinscloud/jenkinscloud"
+                sh "cd /var/jenkins_home/workspace/jenkinscloud"
                 sh "ls -ll"
                 sh 'mvn -B -X -DskipTests clean package'
             }

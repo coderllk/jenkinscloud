@@ -1,0 +1,12 @@
+
+pipeline {
+    agent any
+    stages {
+        stage('Deliver') {
+            steps {
+        
+               sh "echo 123"
+            }
+        }
+    }
+}

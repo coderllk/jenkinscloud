@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh "cd jenkinscloud"
+                sh "ls -ll"
                 sh 'mvn -B -DskipTests clean package'
             }
         }

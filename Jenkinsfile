@@ -25,9 +25,8 @@ pipeline {
 
                     steps {
                         sh "echo ${env.projectName}"
-                        for (item in String0.tokenize(',')){
-                        	echo "Deploying to " + item
-                        }
+                        sh "echo ${String0}"
+                        
                     }
         }
 

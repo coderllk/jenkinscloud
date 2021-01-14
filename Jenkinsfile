@@ -20,8 +20,7 @@ pipeline {
         stage('deploy') {
                     steps {
                         sh "echo ${env.projectName}"
-                        def projectNames = "${env.projectName}"
-                        for (item in projectNames.tokenize(',')){
+                        for (item in "${env.projectName}".tokenize(',')){
                         	echo "Deploying to " + item
                         }
                     }

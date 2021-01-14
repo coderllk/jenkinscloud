@@ -5,6 +5,8 @@ pipeline {
             args '-v /root/.m2:/root/.m2'
         }
     }
+
+
     stages {
         stage('Build') {
             steps {
@@ -18,10 +20,9 @@ pipeline {
         stage('deploy') {
                     steps {
                         sh "echo ${env.projectName}"
-                        def projectNames = "${env.projectName}".split(",")
-                        for(int i = 0;i<projectNames.size();i++){
-                            def name = projectNames.get(i)
-                            sh "echo ${name}"
+                        def projectNames = "${env.projectName}"
+                        for (item in projectNames.tokenize(',')){
+                        	echo "Deploying to " + item
                         }
                     }
                 }

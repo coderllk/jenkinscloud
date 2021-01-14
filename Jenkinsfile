@@ -8,12 +8,20 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               
+
                 sh "pwd"
                 sh "ls -ll"
-                sh 'mvn -B -X -DskipTests clean package'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
+
+        stage('deploy') {
+                    steps {
+                        sh "echo ${env.projectName}"
+                    }
+                }
+
+
 
     }
 }

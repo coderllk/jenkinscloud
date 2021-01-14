@@ -18,6 +18,11 @@ pipeline {
         stage('deploy') {
                     steps {
                         sh "echo ${env.projectName}"
+                        def projectNames = "${env.projectName}".split(",")
+                        for(int i = 0;i<projectNames.size();i++){
+                            def name = projectNames.get(i)
+                            sh "echo ${name}"
+                        }
                     }
                 }
 

@@ -18,13 +18,18 @@ pipeline {
         }
 
         stage('deploy') {
+
+        environment {
+        	String0 =  "$params.projectName"
+         }
+
                     steps {
                         sh "echo ${env.projectName}"
-                        for (item in "${env.projectName}".tokenize(',')){
+                        for (item in String0.tokenize(',')){
                         	echo "Deploying to " + item
                         }
                     }
-                }
+        }
 
 
 

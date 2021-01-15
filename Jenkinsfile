@@ -42,7 +42,7 @@ pipeline {
                          }else if("${curProjectName}" == "user"){
                              def port = 9060
                          }
-                         def dockerBuild = "docker build --build-arg PORT=${port} --build-arg TARGET_JAR=${curProjectName}-2.1.8.RELEASE.jar -t ${curProjectName}:1.0 ."
+                         def dockerBuild = '''docker build --build-arg PORT=${port} --build-arg TARGET_JAR=${curProjectName}-2.1.8.RELEASE.jar -t ${curProjectName}:1.0 .'''
                          sh "echo ${dockerBuild}"
                          sshPublisher(publishers: [sshPublisherDesc(configName: '192.168.0.122', transfers: [sshTransfer(cleanRemote: false, excludes: '',
                          execCommand:

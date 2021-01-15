@@ -53,7 +53,8 @@ pipeline {
 
                          }
                          def dockerBuild = "docker build "+"--build-arg "+"PORT=${port}"+
-                            " --build-arg"+" TARGET_JAR="+"${curProjectName}"+"-2.1.8.RELEASE.jar -t "+"${curProjectName}"+":1.0 .""
+                            " --build-arg"+" TARGET_JAR="+"${curProjectName}"+"-2.1.8.RELEASE.jar -t "+"${curProjectName}"+":1.0 ."
+
                          sh "echo ${dockerBuild}"
 
                          echo "deploy ${curProjectName} success"

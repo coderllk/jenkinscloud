@@ -53,10 +53,10 @@ pipeline {
                              execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/usr/local/jenkinstest', remoteDirectorySDF: false, removePrefix: "${target}", sourceFiles: "${jar}")], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 
                          }
-                         def dockerBuild = "docker build "+"--build-arg "+"PORT=${port}"+
-                            " --build-arg"+" TARGET_JAR="+"${curProjectName}"+"-2.1.8.RELEASE.jar -t "+"${curProjectName}"+":1.0 ."
+                         //def dockerBuild = "docker build "+"--build-arg "+"PORT=${port}"+
+                         //   " --build-arg"+" TARGET_JAR="+"${curProjectName}"+"-2.1.8.RELEASE.jar -t "+"${curProjectName}"+":1.0 ."
 
-                         sh "echo ${dockerBuild}"
+                        // sh "echo ${dockerBuild}"
 
                          echo "deploy ${curProjectName} success"
                     }

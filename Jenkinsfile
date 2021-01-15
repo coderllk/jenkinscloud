@@ -41,14 +41,15 @@ pipeline {
                              def port = 9050
                              sshPublisher(publishers: [sshPublisherDesc(configName: '192.168.0.122', transfers: [sshTransfer(cleanRemote: false, excludes: '',
                              execCommand:
-                             '''docker build --build-arg PORT=9050 --build-arg TARGET_JAR=order-2.1.8.RELEASE.jar -t order:1.0 .''',
+                             '',
+                             //docker build --build-arg PORT=9050 --build-arg TARGET_JAR=order-2.1.8.RELEASE.jar -t order:1.0 .
                               execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/usr/local/jenkinstest', remoteDirectorySDF: false, removePrefix: "${target}", sourceFiles: "${jar}")], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 
                          }else if("${curProjectName}" == "user"){
                              def port = 9060
                              sshPublisher(publishers: [sshPublisherDesc(configName: '192.168.0.122', transfers: [sshTransfer(cleanRemote: false, excludes: '',
                              execCommand:
-                             '''docker build --build-arg PORT=9060 --build-arg TARGET_JAR=user-2.1.8.RELEASE.jar -t user:1.0 .''',
+                             '',
                              execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/usr/local/jenkinstest', remoteDirectorySDF: false, removePrefix: "${target}", sourceFiles: "${jar}")], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 
                          }
